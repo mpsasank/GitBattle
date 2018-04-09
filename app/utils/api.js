@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 
 const GITHUB_URL = "https://api.github.com";
 const GITHUB_CLIENT_ID = "";
@@ -65,25 +65,22 @@ const handleError = (error) => {
   return null
 }
 
+export function battle (players) {
+  return axios
+    .all(players.map(getUserData))
+    .then(sortPlayers)
+    .catch(handleError)
+}
 
-module.exports = {
-  battle: (players) => {
-    return axios
-      .all(players.map(getUserData))
-      .then(sortPlayers)
-      .catch(handleError)
-  },
+export function fetchPopularRepos (language) {
+  const encodedURI = window.encodeURI(`https://api.github.com/search/repositories?q=stars:>1+language:${language}&sort=stars&order=desc&type=Repositories`)
 
-  fetchPopularRepos: (language) => {
-    const encodedURI = window.encodeURI(`https://api.github.com/search/repositories?q=stars:>1+language:${language}&sort=stars&order=desc&type=Repositories`)
-
-    return axios
-      .get(encodedURI)
-      .then((response) => {
-        return response.data.items
-      })
-      .catch((error) => {
-        return error
-      })
-  }
+  return axios
+    .get(encodedURI)
+    .then((response) => {
+      return response.data.items
+    })
+    .catch((error) => {
+      return error
+    })
 }

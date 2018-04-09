@@ -4,10 +4,11 @@ const queryString = require("query-string");
 const api = require("../utils/api");
 const Link = require("react-router-dom").Link;
 const PlayerPreview = require("./PlayerPreview");
+const Loading = require("./Loading");
 
 function Profile (props) {
   const info = props.info;
-  
+
   return (
     <PlayerPreview avatar={info.avatar_url} username={info.login}>
       <ul className='space-list-items'>
@@ -84,7 +85,7 @@ class Results extends React.Component {
     const { error, winner, loser, loading } = this.state;
 
     if (loading === true) {
-      return <p>loading</p>;
+      return <Loading />;
     }
 
     if (error) {

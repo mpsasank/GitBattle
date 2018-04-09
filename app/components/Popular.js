@@ -1,6 +1,7 @@
 const React = require("react");
 const PropTypes = require("prop-types");
 const api = require("../utils/api");
+const Loading = require("./Loading");
 
 function SelectLanguage(props) {
   var languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
@@ -9,7 +10,9 @@ function SelectLanguage(props) {
       {languages.map(function(lang) {
         return (
           <li
-            style={ lang === props.selectedLanguage ? { color: "#d0021b" } : null }
+            style={
+              lang === props.selectedLanguage ? { color: "#d0021b" } : null
+            }
             onClick={props.onSelect.bind(null, lang)}
             key={lang}
           >
@@ -91,7 +94,7 @@ class Popular extends React.Component {
           selectedLanguage={selectedLanguage}
           onSelect={this.updateLanguage}
         />
-        {!repos ? <p>Loading</p> : <RepoGrid repos={repos} />}
+        {!repos ? <Loading /> : <RepoGrid repos={repos} />}
       </div>
     );
   }

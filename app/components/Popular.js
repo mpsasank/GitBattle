@@ -4,12 +4,12 @@ import { fetchPopularRepos } from "../utils/api";
 import Loading from "./Loading";
 
 function SelectLanguage({ selectedLanguage, onSelect }) {
-  const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
+  const languages = ["All", "JavaScript", "React", "Java", "CSS", "Python"];
   return (
     <ul className="languages">
       {languages.map((lang) => (
         <li
-          style={lang === selectedLanguage ? { color: "#d0021b" } : null}
+          style={lang === selectedLanguage ? { color: "#ffffff" } : null}
           onClick={() => onSelect(lang)}
           key={lang}
         >

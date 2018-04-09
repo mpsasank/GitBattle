@@ -38,14 +38,14 @@ class PlayerInput extends React.Component {
         </label>
         <input
           id="username"
-          placeholder="github username"
+          placeholder="Github Username"
           type="text"
           value={username}
           autoComplete="off"
           onChange={this.handleChange}
         />
         <button className="button" type="submit" disabled={!username}>
-          Submit
+          Select
         </button>
       </form>
     );
@@ -101,7 +101,7 @@ class Battle extends React.Component {
     } = this.state;
 
     return (
-      <div>
+      <div className="battle column">
         <div className="row">
           {!playerOneName && (
             <PlayerInput

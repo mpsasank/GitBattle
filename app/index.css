@@ -1,6 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
 
 body {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  font-family: "SF Mono", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #eeb83b;
+}
+
+#app {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("./img/bg-main.jpg") center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  border-bottom: solid 10px #eeb83b;
+  height: 100vh;
+  overflow-x: auto;
 }
 
 .container {
@@ -8,9 +31,24 @@ body {
   margin: 0 auto;
 }
 
+.center {
+  text-align: center;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.vh100{
+  min-height: 100vh;
+}
+
 a {
-  text-decoration: none;
-  color: #d0021b;
+  text-decoration: none !important;
+  color: #eeb83b;
+}
+a:hover {
+  color: #ffffff;
 }
 
 ul {
@@ -22,22 +60,27 @@ li {
 }
 
 .button {
-  color: #e6e6e6;
-  background: #0a0a0a;
-  border: none;
-  font-size: 16px;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: transparent;
+  color: white;
   border-radius: 3px;
-  width: 200px;
-  text-align: center;
-  display: block;
-  padding: 7px 0;
-  margin: 10px auto;
+  border: solid 2px #eeb83b;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  outline: none;
+}
+@media (max-width: 530px) {
+  .button {
+    font-size: 1.4rem;
+  }
 }
 
-.button:hover:enabled {
-  background: linear-gradient(#1a1a1a,#0a0a0a);
-  color: #fff;
-  text-decoration: none;
+.button:hover {
+  background-color: #eeb83b;
+  color: #333;
 }
 
 .button:active {
@@ -49,10 +92,6 @@ li {
   border-radius: 50%;
 }
 
-.space-list-items {
-  margin-bottom: 7px;
-}
-
 .languages {
   display: flex;
   justify-content: center;
@@ -62,6 +101,7 @@ li {
   margin: 10px;
   font-weight: bold;
   cursor: pointer;
+  letter-spacing: 1px;
 }
 
 .popular-list {
@@ -81,20 +121,49 @@ li {
 }
 
 .home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
+  margin-top: 20vh;
+}
+
+.home-container h1 {
+  font-size: 7.3rem;
+  line-height: 1.4;
+    letter-spacing: 2px;
+    font-weight: normal
+}
+
+.subtitle {
+  padding: 0px 0 30px 0;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 2rem;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 2;
+  color: #c4c4c4;
+  font-family: "SF Mono";
+  font-weight: 200;
+}
+
+.home-container .button {
+  margin: 20px;
 }
 
 .nav {
   display: flex;
+  padding: 20px 0;
+  justify-content: center;
+  font-size: 1.4em;
+  letter-spacing: 1px;
 }
 
 .nav li {
-  margin-right: 15px;
+  margin: 0 15px;
 }
 
 .active {
+  color:#fff;
   font-weight: bold;
 }
 
@@ -111,12 +180,25 @@ li {
 }
 
 .column input {
-  border-radius: 3px;
-  margin: 10px 0;
-  padding: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.43);
-  font-size: 16px;
+  font-size: 2em;
   width: 80%;
+  margin: 20px 0;
+  padding: 5px;
+  border: 0;
+  background: transparent;
+  border-bottom: solid 2px rgba(255, 255, 255, 0.25);
+  margin-right: 2rem;
+  color: white;
+  font-weight: lighter;
+  letter-spacing: 1px;
+}
+.column input::placeholder {
+  font-weight: lighter;
+  letter-spacing: 1px;
+  font-size: 2rem;
+}
+.column input:focus {
+  outline: none;
 }
 
 .column label {
@@ -138,8 +220,60 @@ li {
   display: block;
   width: 100%;
   text-align: center;
+  padding: 4px;
 }
 
 .reset:hover {
   cursor: pointer;
+}
+
+.battle {
+  width: auto;
+  min-height: 80vh;
+  justify-content: center;
+}
+
+.playerCard_wrap {
+  width: 300px;
+  margin: 6rem 20px 20px;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.playerCard_wrap .header {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.playerCard_wrap:first-child .header, .playerCard_wrap:first-child .score {
+  background: #b22222;
+}
+.playerCard_wrap:last-child .header, .playerCard_wrap:last-child .score {
+  background: #808080;
+}
+
+.playerCard_wrap .score {
+  border-top: 1px solid #c4c4c4;
+  text-align: center;
+  font-size: 1.6em;
+  font-weight: normal;
+  padding: 4px;
+  color: #fff;
+}
+
+.playerCard {
+  background: #fff;
+  color: #000;
+  padding: 10px 0 2px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.playerCard .column {
+  width: 100%;
+}
+.playerCard li {
+  border-bottom: 1px solid #c4c4c4;
+  padding: 4px 10px;
+}
+.playerCard li:last-child {
+  border: none
 }

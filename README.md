@@ -4,9 +4,9 @@ This project was created as part of a React skills showcase. It displays compete
 
 This app allows us to:
 
-- see the welcome page with its links.
-- compare two GitHub account's score.
-- see the most popular GitHub repos based on their languages.
+- See the welcome page with its links.
+- Compare two GitHub account's score. Basing on the numbers of followers and stars it declares the winner.
+- See the most popular GitHub repos based on their languages.
 
 ![Page Home](screenshots/home.PNG)
 

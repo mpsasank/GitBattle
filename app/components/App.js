@@ -11,7 +11,7 @@ class App extends React.Component {
     return (
       <Rounter>
         <div className='container'>
-          <Nav />
+          <Route render={( props ) => (props.location.pathname !== '/' ? <Nav /> : null)} />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/battle" component={Battle} />
